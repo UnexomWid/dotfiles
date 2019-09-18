@@ -16,12 +16,12 @@ This is a collection of configuration files that I use to achieve a _blue-gold_ 
 * **OS:** [Arch Linux x86_64](https://www.archlinux.org)
 * **WM:** [i3-gaps](https://github.com/Airblader/i3)
 * **Wallpaper:** [here](https://wall.alphacoders.com/big.php?i=851009)
-* **Wallpaper managing:** [feh](https://feh.finalrewind.org)
+* **Wallpaper Managing:** [feh](https://feh.finalrewind.org)
 * **Terminal Emulator:** [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html)
 * **Shell:** [zsh](https://www.zsh.org)
 * **Font:**
     * **Terminal:** [Terminus](http://terminus-font.sourceforge.net)
-    * **Everywhere else:** [TerminessTTF Nerd Font](https://www.nerdfonts.com)
+    * **Everywhere Else:** [TerminessTTF Nerd Font](https://www.nerdfonts.com)
 * **Status Bar:** [Polybar](https://github.com/polybar/polybar)
 * **Music:** 
     * **Daemon:** [mpd](https://www.musicpd.org)
