@@ -1,0 +1,21 @@
+[general]
+framerate = 60
+
+autosens = 1
+
+bar_width = 1
+bar_spacing = 1
+
+lower_cutoff_freq = 35
+
+method = pulse
+source = auto
+
+[output]
+method = ncurses
+
+channels = mono
+
+[color]
+foreground = cyan
+

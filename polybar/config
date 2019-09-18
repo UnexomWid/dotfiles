@@ -1,0 +1,332 @@
+[colors]
+background = ${xrdb:color3:#e5c365}
+background-alt = ${xrdb:color11:#ffd75f}
+foreground = ${xrdb:color4:#141f2e}
+foreground-alt = ${xrdb:color8:121212}
+primary = ${xrdb:color12:#0087ff}
+secondary = ${xrdb:color6:#507cb8}
+alert = ${xrdb:color1:#d70000}
+alert-text = ${xrdb:color15:#ffffff}
+
+[bar/exom]
+width = 100%
+height = 27
+radius = 0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = ${colors.secondary}
+
+border-size = 0
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "TerminessTTF Nerd Font:pixelsize:14;0"
+
+modules-left = i3
+modules-center = mpd
+modules-right = xbacklight pulseaudio memory cpu temperature wlan eth battery date time powermenu
+
+tray-position = right
+tray-padding = 2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = ${colors.secondary}
+
+label-layout = %layout%
+label-layout-underline = ${colors.secondary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 2
+label-mode-foreground = ${colors.alert-text}
+label-mode-background = ${colors.alert}
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.secondary}
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.alert-text}
+label-urgent-padding = 2
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <label-song>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song = %title%
+label-song-maxlen = 75
+label-song-ellipsis = true
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = "ﯦ"
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = ${colors.foreground}
+bar-fill = ─
+bar-fill-foreground = ${colors.foreground}
+bar-empty = ─
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = ""
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.secondary}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.secondary}
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = ${colors.secondary}
+label-connected = %essid%
+
+format-disconnected =
+format-disconnected-underline = ${colors.alert}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground}
+
+[module/eth]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+
+format-connected-underline = ${colors.secondary}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground}
+label-connected = %local_ip%
+
+format-disconnected =
+format-disconnected-underline = ${colors.alert}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = 
+date-alt = "%d/%m/%Y"
+
+time = %H:%M
+time-alt = %H:%M
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.secondary}
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+label-volume = "墳 %percentage%%"
+label-volume-foreground = ${root.foreground}
+
+label-muted = "婢 muted"
+label-muted-foreground = ${colors.foreground}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.foreground}
+bar-volume-foreground-1 = ${colors.foreground}
+bar-volume-foreground-2 = ${colors.foreground}
+bar-volume-foreground-3 = ${colors.foreground}
+bar-volume-foreground-4 = ${colors.foreground}
+bar-volume-foreground-5 = ${colors.foreground}
+bar-volume-foreground-6 = ${colors.foreground}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-fill = ─
+bar-volume-empty = ─
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/alsa]
+type = internal/alsa
+
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = sound muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-fill = -
+bar-volume-empty = -
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 98
+
+label-discharging = "%percentage%% (%time%)"
+label-charging = ${self.label-discharging}
+label-full = "Fully charged"
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.secondary}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${colors.alert}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = ${colors.secondary}
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${colors.alert}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.foreground}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+ramp-foreground = ${colors.foreground}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = ""
+label-open-foreground = ${colors.foreground}
+label-close = " cancel"
+label-close-foreground = ${colors.foreground}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = systemctl reboot
+
+menu-2-0 = power off
+menu-2-0-exec = systemctl poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5

@@ -1,0 +1,156 @@
+set $super Mod4
+set $alt Mod1
+
+font pango: TerminessTTF Nerd Font 10
+
+floating_modifier $super
+
+exec_always --no-startup-id sh ~/.config/polybar/launch.sh
+exec --no-startup-id xsettingsd &
+exec --no-startup-id compton -b
+
+# Start a terminal
+bindsym $super+Return exec i3-sensible-terminal
+
+# Start rofi
+bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 0font 'TerminessTTF Nerd Font 10'
+
+# Screenshot
+bindsym Print exec maim ~/screenshots/$(date +%s).png
+# Lock
+bindsym $super+l exec i3lock -i ~/.wallpaper.png
+# Messenger & Mail
+bindsym $super+m exec "chromium --app=https://messenger.com & sleep 0.4;thunderbird"
+
+# Volume control
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +2%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -2%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# Music control
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
+bindsym $super+slash exec mpc next
+bindsym $super+comma exec mpc prev
+bindsym $super+period exec mpc toggle
+
+# Brightness control
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+
+# Kill focused window
+bindsym $super+c kill
+bindsym $alt+F4 kill
+
+# Change focus
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+# Move focused window.
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+# Split in horizontal orientation
+bindsym $super+h split h
+
+# Split in vertical orientation
+bindsym $super+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $super+f fullscreen toggle
+
+# Change container layout split
+bindsym $super+s layout toggle split
+
+# Toggle tiling / floating
+bindsym $super+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $super+Shift+space focus mode_toggle
+
+# Switch to workspace
+bindsym $alt+Control+Right workspace next
+bindsym $alt+Control+Left workspace prev
+bindsym $super+1 workspace 1
+bindsym $super+2 workspace 2
+bindsym $super+3 workspace 3
+bindsym $super+4 workspace 4
+bindsym $super+5 workspace 5
+bindsym $super+6 workspace 6
+
+# Move focused container to workspace
+bindsym $super+Shift+1 move container to workspace 1
+bindsym $super+Shift+2 move container to workspace 2
+bindsym $super+Shift+3 move container to workspace 3
+bindsym $super+Shift+4 move container to workspace 4
+bindsym $super+Shift+5 move container to workspace 5
+bindsym $super+Shift+6 move container to workspace 6
+
+# Restart i3 inplace
+bindsym $super+Shift+r restart
+
+# Exit i3
+bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
+# Exit i3 forcefully
+bindsym $super+Shift+q exec i3-msg "exit"
+
+# Resize window
+mode "resize" {
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Return mode "default"
+}
+bindsym $super+r mode "resize"
+bindsym $super+Control+Left resize shrink width 5 px or 5 ppt
+bindsym $super+Control+Down resize grow height 5 px or 5 ppt
+bindsym $super+Control+Up resize shrink height 5 px or 5 ppt
+bindsym $super+Control+Right resize grow width 5 px or 5 ppt
+
+# Wallpapers
+bindsym $super+Control+0 exec "rm -f ~/.fehbg;feh --bg-scale ~/.wallpapers/0.png"
+bindsym $super+Control+1 exec "rm -f ~/.fehbg;feh --bg-scale ~/.wallpapers/1.png"
+bindsym $super+Control+2 exec "rm -f ~/.fehbg;feh --bg-scale ~/.wallpapers/2.png"
+bindsym $super+Control+3 exec "rm -f ~/.fehbg;feh --bg-scale ~/.wallpapers/3.png"
+bindsym $super+Control+4 exec "rm -f ~/.fehbg;feh --bg-scale ~/.wallpapers/4.png"
+bindsym $super+Control+5 exec "rm -f ~/.fehbg;feh --bg-scale ~/.wallpapers/5.png"
+bindsym $super+Control+6 exec "rm -f ~/.fehbg;feh --bg-scale ~/.wallpapers/6.png"
+bindsym $super+Control+7 exec "rm -f ~/.fehbg;feh --bg-scale ~/.wallpapers/7.png"
+bindsym $super+Control+8 exec "rm -f ~/.fehbg;feh --bg-scale ~/.wallpapers/8.png"
+bindsym $super+Control+9 exec "rm -f ~/.fehbg;feh --bg-scale ~/.wallpapers/9.png"
+
+# Window rules
+for_window [class=".*"] border pixel 2
+
+# Colour of border, background, text, indicator, and child_border
+client.focused              #ffd57f #2f343f #d8dee8 #bf616a #e5c365
+client.focused_inactive     #5f87d7 #2f343f #d8dee8 #2f343f #507cb8
+client.unfocused            #5f87d7 #2f343f #d8dee8 #2f343f #507cb8
+client.urgent               #5f87d7 #2f343f #d8dee8 #2f343f #507cb8
+client.placeholder          #5f87d7 #2f343f #d8dee8 #2f343f #507cb8
+client.background           #5f87d7
+
+gaps inner 10
+gaps outer 20
+
+# Workspace 1
+exec --no-startup-id "i3-msg 'workspace 1'"
+exec --no-startup-id "sleep 0.2;urxvt"
+exec --no-startup-id "sleep 0.3;urxvt -e zsh -c \"vtop --theme exom;zsh\""
+exec --no-startup-id "sleep 0.4;i3-msg 'focus left'"
+exec --no-startup-id "sleep 0.5;i3-msg 'split v'"
+exec --no-startup-id "sleep 0.6;urxvt"
+exec --no-startup-id "sleep 0.7;i3-msg 'focus right'"
+exec --no-startup-id "sleep 0.8;i3-msg 'split v'"
+exec --no-startup-id "sleep 0.9;urxvt -e zsh -c 'mpd;ncmpcpp;zsh'"
+exec --no-startup-id "sleep 1.0;urxvt -e zsh -c 'cava;zsh'"
+exec --no-startup-id "sleep 1.1;i3-msg 'focus left'"
+exec --no-startup-id "sleep 1.2;i3-msg 'focus up'"
+exec --no-startup-id "sleep 1.3;i3-msg 'resize grow width 15 px or 15 ppt'"

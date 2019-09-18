@@ -1,0 +1,7 @@
+startup_screen = clock
+
+main_window_color = cyan
+
+progressbar_look = =O
+progressbar_color = black
+progressbar_elapsed_color = yellow

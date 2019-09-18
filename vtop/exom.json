@@ -1,0 +1,35 @@
+{
+	"name": "Exom",
+	"author": "UnexomWid",
+	"description": "A blue-gold-white-black theme.",
+	"title": {
+		"fg": "#507cb8"
+	},
+	"chart": {
+		"fg": "#507cb8",
+		"border": {
+			"type": "line",
+			"fg": "#e5c365"
+		}
+	},
+	"table": {
+		"fg": "white",
+		"items": {
+			"selected": {
+				"bg": "#507cb8",
+				"fg": "#141f2e"
+			},
+			"item": {
+				"fg": "fg",
+				"bg": "bg"
+			}
+		},
+		"border": {
+			"type": "line",
+			"fg": "#e5c365"
+		}
+	},
+	"footer": {
+		"fg": "fg"
+	}
+}
