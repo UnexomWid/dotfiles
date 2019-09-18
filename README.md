@@ -30,3 +30,15 @@ This is a collection of configuration files that I use to achieve a _blue-gold_ 
     * **Client:** [ncmpcpp](https://rybczak.net/ncmpcpp)
 * **Audio Visualizer:** [C.A.V.A.](https://github.com/karlstav/cava)
 * **Activity Monitor:** [vtop](https://github.com/MrRio/vtop)
+
+# Bindings
+
+* `Super` + `Shift` + `Q` quits i3 without asking
+* `Super` + `Control` + `0`/`1`/`2`/`3`/.../`9` changes the wallpaper to `~/.wallpapes/0/1/2/3/.../9.png` (10 possible wallpapers, requires [feh](https://feh.finalrewind.org))
+* `Super` + `Control` + `Up`/`Down`/`Left`/`Right` resizes the focused window without entering `resize` mode
+* `Super` + `,` plays the previous track
+* `Super` + `.` pauses/resumes the current track
+* `Super` + `/` plays the next track
+* `Super` + `m` opens Facebook Messenger and Thunderbird
+* `Super` + `l` runs [i3lock](https://i3wm.org/i3lock)
+* `Print` saves a screenshot as `~/screenshots/$(date +%s).png`
