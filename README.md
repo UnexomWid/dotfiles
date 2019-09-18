@@ -1,9 +1,9 @@
 <p align="left">
-  <img src="_screenshots/rEFInd.png" alt="rEFInd">
+  <img src="_screenshots/screenshot_rEFInd.png" alt="rEFInd">
 </p>
 
 <p align="right">
-  <img src="_screenshots/arch.png" alt="Arch">
+  <img src="_screenshots/screenshot_arch.png" alt="Arch">
 </p>
 
 # About
