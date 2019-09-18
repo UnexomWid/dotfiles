@@ -23,6 +23,7 @@ This is a collection of configuration files that I use to achieve a _blue-gold_ 
     * **Terminal:** [Terminus](http://terminus-font.sourceforge.net)
     * **Everywhere Else:** [TerminessTTF Nerd Font](https://www.nerdfonts.com)
 * **Status Bar:** [Polybar](https://github.com/polybar/polybar)
+* **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
 * **Music:** 
     * **Daemon:** [mpd](https://www.musicpd.org)
     * **CLI:** [mpc](https://www.musicpd.org/clients/mpc)
