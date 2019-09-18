@@ -34,7 +34,7 @@ This is a collection of configuration files that I use to achieve a _blue-gold_ 
 # Bindings
 
 * `Super` + `Shift` + `Q` quits i3 without asking
-* `Super` + `Control` + `0`/`1`/`2`/`3`/.../`9` changes the wallpaper to `~/.wallpapes/0/1/2/3/.../9.png` (10 possible wallpapers, requires [feh](https://feh.finalrewind.org))
+* `Super` + `Control` + **`0`/`1`/`2`/`3`/.../`9`** changes the wallpaper to `~/.wallpapes/**0/1/2/3/.../9**.png` (10 possible wallpapers, requires [feh](https://feh.finalrewind.org))
 * `Super` + `Control` + `Up`/`Down`/`Left`/`Right` resizes the focused window without entering `resize` mode
 * `Super` + `,` plays the previous track
 * `Super` + `.` pauses/resumes the current track
